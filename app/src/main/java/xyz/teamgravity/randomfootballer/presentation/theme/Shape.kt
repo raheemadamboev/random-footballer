@@ -1,4 +1,4 @@
-package xyz.teamgravity.randomfootballer.ui.theme
+package xyz.teamgravity.randomfootballer.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
