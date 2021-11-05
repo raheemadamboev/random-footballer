@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
@@ -23,8 +24,15 @@ class MainViewModel @Inject constructor(
     private val _state = mutableStateOf(FootballerState())
     val state: State<FootballerState> = _state
 
+    private var fetchFootballerJob: Job? = null
+
     init {
-        getRandomFootballer().onEach { result ->
+        executeGetRandomFootballer()
+    }
+
+    fun executeGetRandomFootballer() {
+        fetchFootballerJob?.cancel()
+        fetchFootballerJob = getRandomFootballer().onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.value = FootballerState(footballer = result.data, loading = false, error = null)
