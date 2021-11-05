@@ -7,6 +7,8 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import xyz.teamgravity.randomfootballer.data.remote.FootballersApi
+import xyz.teamgravity.randomfootballer.data.repository.FootballerRepositoryImpl
+import xyz.teamgravity.randomfootballer.domain.repository.FootballerRepository
 import javax.inject.Singleton
 
 @Module
@@ -20,4 +22,7 @@ object ApplicationModule {
         .baseUrl("http://192.168.1.9:8080")
         .build()
         .create(FootballersApi::class.java)
+
+    @Provides
+    fun provideFootballerRepository(api: FootballersApi): FootballerRepository = FootballerRepositoryImpl(api)
 }
