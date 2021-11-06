@@ -3,7 +3,9 @@ Jetpack Compose android app that gets random footballer data from REST API. Retr
 
 **Random Footballer**
 
-<a href="https://github.com/raheemadamboev/random-footballer/blob/master/app-debug.apk">Demo app</a>
+<a href="https://github.com/raheemadamboev/random-footballer/blob/master/app-debug.apk">Demo app</a> 
+
+**Caution!** You have to launch the  <a href="https://github.com/raheemadamboev/footballers-rest-api">Footballers REST API</a> in your local machine to use demo app.
 
 Basic android app built by Jetpack Compose and gets its data from KTOR backend that I build <a href="https://github.com/raheemadamboev/footballers-rest-api">Footballers REST API</a>. Every button click it gets random footballer data from server and presents it in screen.
 
